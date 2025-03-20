@@ -1,0 +1,60 @@
+assistants:
+  - id: planner # ID of assistant inside this configuration
+    model: 'gpt-4o' # Ability to override model
+  - id: research_query_generator
+    model: 'gpt-4o'
+  - id: research_web
+    model: 'gpt-4o'
+  - id: essay_writer
+    model: 'gpt-4o'
+
+states:
+  - id: plan # ID of state inside this configuration
+    assistant_id: planner
+    task: |
+      You are an expert writer tasked with writing a high level outline of an essay.
+      Write such an outline for the user provided topic. 
+      Give an outline of the essay along with any relevant notes
+      or instructions for the sections.
+    output_schema: |
+      {
+        "plan": "High level outline of the essay"
+      }
+    next:
+      state_id: research_query_generator_state # ID of next state
+  - id: research_query_generator_state # ID of state inside this configuration
+    assistant_id: research_query_generator
+    task: |
+        You are a researcher charged with providing information that can
+        be used when writing the following essay. Generate a list of search queries 
+        that will gather any relevant information. Only generate 3 queries max.
+    output_schema: |
+      {
+        "queries": "List of the queries needed to be searched"
+      }
+    next:
+      state_id: research_web # ID of next state
+  - id: research_web # ID of state inside this configuration
+    assistant_id: research_web
+    task: |
+        You are an expert web researcher. You are given a list of queries to search on the web
+        For each queries, please search the web for information and store the key points 
+        in a query result
+    output_schema: |
+      {
+        "queries_results" : "List of the key points of the websearch linked to the queries"
+      }
+    next:
+      state_id: generate_essay # ID of next state
+  - id: generate_essay # ID of state inside this configuration
+    assistant_id: essay_writer
+    task: |
+        You are an essay assistant tasked with writing excellent 5-paragraph essays.
+        Generate the best essay possible for the user's request and the initial outline.
+        If the user provides critique, respond with a revised version of your previous attempts.
+        Utilize all the information in the queries and queries_results as needed
+    output_schema: |
+      {
+        "essay" : "Essay resulting of the websearch"
+      }
+    
