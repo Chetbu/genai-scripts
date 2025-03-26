@@ -4,3 +4,5 @@ openai
 pymupdf4llm
 markitdown[all]
 pydantic-ai
+duckduckgo-search
+faiss-cpu

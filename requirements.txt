@@ -48,6 +48,8 @@ charset-normalizer==3.4.1
     #   markitdown
     #   pdfminer-six
     #   requests
+click==8.1.8
+    # via duckduckgo-search
 cobble==0.1.4
     # via mammoth
 cohere==5.14.0
@@ -69,12 +71,16 @@ distro==1.9.0
     #   anthropic
     #   groq
     #   openai
+duckduckgo-search==7.5.4
+    # via -r requirements.in
 et-xmlfile==2.0.0
     # via openpyxl
 eval-type-backport==0.2.2
     # via
     #   mistralai
     #   pydantic-ai-slim
+faiss-cpu==1.10.0
+    # via -r requirements.in
 fastavro==1.10.0
     # via cohere
 filelock==3.17.0
@@ -126,7 +132,9 @@ jsonpath-python==1.0.6
 logfire-api==3.7.1
     # via pydantic-graph
 lxml==5.3.1
-    # via python-pptx
+    # via
+    #   duckduckgo-search
+    #   python-pptx
 mammoth==1.9.0
     # via markitdown
 markdown-it-py==3.0.0
@@ -151,6 +159,7 @@ mypy-extensions==1.0.0
     # via typing-inspect
 numpy==2.2.3
     # via
+    #   faiss-cpu
     #   markitdown
     #   pandas
 olefile==0.47
@@ -165,7 +174,9 @@ openpyxl==3.1.5
 opentelemetry-api==1.30.0
     # via pydantic-ai-slim
 packaging==24.2
-    # via huggingface-hub
+    # via
+    #   faiss-cpu
+    #   huggingface-hub
 pandas==2.2.3
     # via markitdown
 pathvalidate==3.2.3
@@ -176,6 +187,8 @@ pillow==11.1.0
     # via python-pptx
 portalocker==2.10.1
     # via msal-extensions
+primp==0.14.0
+    # via duckduckgo-search
 prompt-toolkit==3.0.50
     # via pydantic-ai-slim
 puremagic==1.28
