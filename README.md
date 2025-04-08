@@ -40,6 +40,7 @@ This repository contains several Python scripts that interact with various Gener
         GROQ_API_KEY="your_groq_api_key"
         MISTRAL_API_KEY="your_mistral_api_key"
         GEMINI_API_KEY="your_gemini_api_key"
+        AZURE_OPENAI_ENDPOINT="end_point_url"
      ```
 
     *   **Important:**
