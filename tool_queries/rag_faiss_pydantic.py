@@ -88,7 +88,6 @@ async def rag_chatbot(user_message: str, llm_model_name:str=model, embeddings_mo
         context_full_str = "\n\n"
 
         for index in index_list[0]:
-            print(index, type(index))
             context_full_str += document_list[index]
             context_full_str += "\n\n"
 
@@ -98,4 +97,4 @@ async def rag_chatbot(user_message: str, llm_model_name:str=model, embeddings_mo
         async for node in result:
             print(node)
 
-asyncio.run(rag_chatbot("What is in the pond ?"))
+asyncio.run(rag_chatbot("What can you buy in the market?"))

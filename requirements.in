@@ -6,3 +6,4 @@ markitdown[all]
 pydantic-ai
 duckduckgo-search
 faiss-cpu
+langgraph
